@@ -8,6 +8,6 @@ with contact as (
     from {{ ref('stg_hubspot__contact') }}
 )
 select
-    {{dbt_utils.surrogate_key([''])}} as contact_sk,
+    {{dbt_utils.surrogate_key(['contact_id'])}} as contact_sk,
     *
 from contact

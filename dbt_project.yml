@@ -52,21 +52,19 @@ vars:
   hubspot_contact_list_enabled: false                     # Disables contact list models
   hubspot_contact_list_member_enabled: false              # Disables contact list member models
   hubspot_contact_property_enabled: false                 # Disables the contact property models
-  hubspot_email_event_enabled: false                      # Disables all email_event models and functionality
-  hubspot_email_event_bounce_enabled: false
-  hubspot_email_event_click_enabled: false
-  hubspot_email_event_deferred_enabled: false
-  hubspot_email_event_delivered_enabled: false
+  hubspot_email_event_enabled: true                      # Disables all email_event models and functionality
+  hubspot_email_event_bounce_enabled: true
+  hubspot_email_event_click_enabled: true
+  hubspot_email_event_deferred_enabled: true
+  hubspot_email_event_delivered_enabled: true
   hubspot_email_event_dropped_enabled: false
   hubspot_email_event_forward_enabled: false
-  hubspot_email_event_click_enabled: false
-  hubspot_email_event_opens_enabled: false
+  hubspot_email_event_click_enabled: true
+  hubspot_email_event_opens_enabled: true
   hubspot_email_event_print_enabled: false
-  hubspot_email_event_sent_enabled: false
+  hubspot_email_event_sent_enabled: true
   hubspot_email_event_spam_report: false
   hubspot_email_event_status_change_enabled: false
-
-  hubspot_contact_merge_audit_enabled: true               # Enables contact merge auditing to be applied to final models (removes any merged contacts that are still persisting in the contact table)
 
   # Sales
 
@@ -85,9 +83,9 @@ vars:
   hubspot_engagement_tasks_enabled: true
 
   # Service
-  hubspot_service_enabled: false                           # Enables all service models
+  hubspot_service_enabled: true                           # Enables all service models
 
-  hubspot_contact_merge_audit_enabled: true               # Enables contact merge auditing to be applied to final models (removes any merged contacts that are still persisting in the contact table)
+  hubspot_contact_merge_audit_enabled: false               # Enables contact merge auditing to be applied to final models (removes any merged contacts that are still persisting in the contact table)
 
   email_metrics: ['bounces',      #Remove if you do not want metrics in final model.
                 'clicks',       #Remove if you do not want metrics in final model.

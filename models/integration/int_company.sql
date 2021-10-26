@@ -8,6 +8,6 @@ with company as (
     from {{ ref('stg_hubspot__company') }}
 )
 select
-    {{dbt_utils.surrogate_key([''])}} as company_sk,
+    {{dbt_utils.surrogate_key(['company_id'])}} as company_sk,
     *
 from company

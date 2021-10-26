@@ -32,10 +32,6 @@ clean-targets:         # directories to be removed by `dbt clean`
 # as tables. These settings can be overridden in the individual model files
 # using the `{{ config(...) }}` macro.
 models:
-  my_new_project:
-      # Applies to all files under models/example/
-      example:
-          materialized: view
   hubspot_source:
     +schema:  # leave blank for just the target_schema
   hubspot:
@@ -51,8 +47,8 @@ vars:
     alias:          "service"
     transform_sql:  "cast(service as string)"
 
-  hubspot_marketing_enabled: false                        # Disables all marketing models
-  hubspot_contact_enabled: false                          # Disables the contact models
+  hubspot_marketing_enabled: true                        # Disables all marketing models
+  hubspot_contact_enabled: true                          # Disables the contact models
   hubspot_contact_list_enabled: false                     # Disables contact list models
   hubspot_contact_list_member_enabled: false              # Disables contact list member models
   hubspot_contact_property_enabled: false                 # Disables the contact property models

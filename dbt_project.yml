@@ -1,0 +1,106 @@
+
+# Name your project! Project names should contain only lowercase characters
+# and underscores. A good package name should reflect your organization's
+# name or the intended use of these models
+name: 'my_new_project'
+version: '1.0.0'
+config-version: 2
+
+# This setting configures which "profile" dbt uses for this project.
+profile: 'dbt_wisemuffin'
+
+# These configurations specify where dbt should look for different types of files.
+# The `source-paths` config, for example, states that models in this project can be
+# found in the "models/" directory. You probably won't need to change these!
+source-paths: ["models"]
+analysis-paths: ["analysis"]
+test-paths: ["tests"]
+data-paths: ["data"]
+macro-paths: ["macros"]
+snapshot-paths: ["snapshots"]
+
+target-path: "target"  # directory which will store compiled SQL files
+clean-targets:         # directories to be removed by `dbt clean`
+    - "target"
+    - "dbt_modules"
+
+
+# Configuring models
+# Full documentation: https://docs.getdbt.com/docs/configuring-models
+
+# In this example config, we tell dbt to build all models in the example/ directory
+# as tables. These settings can be overridden in the individual model files
+# using the `{{ config(...) }}` macro.
+models:
+  my_new_project:
+      # Applies to all files under models/example/
+      example:
+          materialized: view
+  hubspot_source:
+    +schema:  # leave blank for just the target_schema
+  hubspot:
+    +schema:  # leave blank for just the target_schema
+
+vars:
+  hubspot_source:
+    hubspot_database: dbt-raw-wisemuffin
+    # hubspot_schema: your_schema_name
+
+  hubspot__deal_pass_through_columns:
+  - name:           "property_service"
+    alias:          "service"
+    transform_sql:  "cast(service as string)"
+
+  hubspot_marketing_enabled: false                        # Disables all marketing models
+  hubspot_contact_enabled: false                          # Disables the contact models
+  hubspot_contact_list_enabled: false                     # Disables contact list models
+  hubspot_contact_list_member_enabled: false              # Disables contact list member models
+  hubspot_contact_property_enabled: false                 # Disables the contact property models
+  hubspot_email_event_enabled: false                      # Disables all email_event models and functionality
+  hubspot_email_event_bounce_enabled: false
+  hubspot_email_event_click_enabled: false
+  hubspot_email_event_deferred_enabled: false
+  hubspot_email_event_delivered_enabled: false
+  hubspot_email_event_dropped_enabled: false
+  hubspot_email_event_forward_enabled: false
+  hubspot_email_event_click_enabled: false
+  hubspot_email_event_opens_enabled: false
+  hubspot_email_event_print_enabled: false
+  hubspot_email_event_sent_enabled: false
+  hubspot_email_event_spam_report: false
+  hubspot_email_event_status_change_enabled: false
+
+  hubspot_contact_merge_audit_enabled: true               # Enables contact merge auditing to be applied to final models (removes any merged contacts that are still persisting in the contact table)
+
+  # Sales
+
+  hubspot_sales_enabled: true                            # Disables all sales models
+  hubspot_company_enabled: true
+  hubspot_deal_enabled: true
+  hubspot_deal_company_enabled: true
+  hubspot_engagement_enabled: true                       # Disables all engagement models and functionality
+  hubspot_engagement_contact_enabled: true
+  hubspot_engagement_company_enabled: true
+  hubspot_engagement_deal_enabled: true
+  hubspot_engagement_calls_enabled: true
+  hubspot_engagement_emails_enabled: true
+  hubspot_engagement_meetings_enabled: true
+  hubspot_engagement_notes_enabled: true
+  hubspot_engagement_tasks_enabled: true
+
+  # Service
+  hubspot_service_enabled: false                           # Enables all service models
+
+  hubspot_contact_merge_audit_enabled: true               # Enables contact merge auditing to be applied to final models (removes any merged contacts that are still persisting in the contact table)
+
+  email_metrics: ['bounces',      #Remove if you do not want metrics in final model.
+                'clicks',       #Remove if you do not want metrics in final model.
+                'deferrals',    #Remove if you do not want metrics in final model.
+                'deliveries',   #Remove if you do not want metrics in final model.
+                'drops',        #Remove if you do not want metrics in final model.
+                'forwards',     #Remove if you do not want metrics in final model.
+                'opens',        #Remove if you do not want metrics in final model.
+                'prints',       #Remove if you do not want metrics in final model.
+                'spam_reports', #Remove if you do not want metrics in final model.
+                'unsubscribes'  #Remove if you do not want metrics in final model.
+                  ]

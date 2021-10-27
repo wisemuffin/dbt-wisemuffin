@@ -64,6 +64,7 @@ vars:
   hubspot_email_event_print_enabled: false
   hubspot_email_event_sent_enabled: true
   hubspot_email_event_spam_report: false
+  hubspot_email_event_spam_report_enabled: false
   hubspot_email_event_status_change_enabled: false
 
   # Sales
@@ -89,12 +90,12 @@ vars:
 
   email_metrics: ['bounces',      #Remove if you do not want metrics in final model.
                 'clicks',       #Remove if you do not want metrics in final model.
-                'deferrals',    #Remove if you do not want metrics in final model.
+                # 'deferrals',    #Remove if you do not want metrics in final model.
                 'deliveries',   #Remove if you do not want metrics in final model.
-                'drops',        #Remove if you do not want metrics in final model.
-                'forwards',     #Remove if you do not want metrics in final model.
-                'opens',        #Remove if you do not want metrics in final model.
-                'prints',       #Remove if you do not want metrics in final model.
-                'spam_reports', #Remove if you do not want metrics in final model.
-                'unsubscribes'  #Remove if you do not want metrics in final model.
+                # 'drops',        #Remove if you do not want metrics in final model.
+                # 'forwards',     #Remove if you do not want metrics in final model.
+                'opens'        #Remove if you do not want metrics in final model.
+                # 'prints',       #Remove if you do not want metrics in final model.
+                # 'spam_reports', #Remove if you do not want metrics in final model.
+                # 'unsubscribes'  #Remove if you do not want metrics in final model.
                   ]

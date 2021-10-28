@@ -1,0 +1,28 @@
+version: 2
+
+models:
+    - name: src_date
+      description: Join on this table to add additional date complexity
+      columns:
+          - name: date_day
+            description: Calendar date, e.g. '2019-02-02'
+            tests:
+               - not_null
+               - unique
+          - name: date_actual
+            description: Matches `date_day`, duplicated for ease of use
+            tests:
+               - not_null
+               - unique
+          - name: month_actual
+            description: Number for the calendar month of the year, e.g. '2' for 2019-02-02
+            tests:
+               - not_null
+          - name: year_actual
+            description: Calendar year, e.g. '2019' for 2019-02-02
+            tests:
+               - not_null
+          - name: quarter_actual
+            description: Calendar quarter, e.g. '1' for 2019-02-02
+            tests:
+               - not_null

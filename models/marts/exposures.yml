@@ -1,0 +1,36 @@
+version: 2
+
+exposures:
+  
+  - name: power_bi_sales_and_marketing
+    type: dashboard                         # required
+    maturity: high                          # optional
+    url: https://bi.tool/dashboards/1       # optional
+    description: >                          # optional
+      Did someone say "exponential growth"?
+    
+    depends_on:                             # expected
+      - ref('fct_deal')
+      - ref('dim_contact')
+      - ref('dim_company')
+      # - source('gsheets', 'goals')
+
+    owner:
+      name: Dave from Data                # optional
+      email: dave@wisemuffin.com            # required
+
+  - name: power_bi_service_tickets
+    type: dashboard                         # required
+    maturity: high                          # optional
+    url: https://bi.tool/dashboards/1       # optional
+    description: >                          # optional
+      Did someone say "exponential growth"?
+    
+    depends_on:                             # expected
+      - ref('fct_ticket')
+      - ref('dim_contact')
+      # - source('gsheets', 'goals')
+
+    owner:
+      name: Dave from Data                # optional
+      email: dave@wisemuffin.com            # required

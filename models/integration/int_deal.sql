@@ -6,6 +6,7 @@
 
 with deal as (
     select *
+    , 1 as demo_lineage
     from {{ ref('stg_hubspot__deal') }}
 )
 select

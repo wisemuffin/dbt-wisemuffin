@@ -1,0 +1,14 @@
+version: 2
+
+models:
+
+  - name: fct_deal
+    description: Each record represents a deal in Hubspot.
+    columns:
+
+      - name: deal_id
+        description: ID of the ticket.
+        tests:
+          - unique
+          - not_null
+
